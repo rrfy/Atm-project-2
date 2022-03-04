@@ -1,18 +1,21 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-//import androidx.room.Database;
-//import androidx.room.Room;
-//import androidx.room.RoomDatabase;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -22,32 +25,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        AppDataBase db = Room.databaseBuilder(getApplicationContext(), AppDataBase.class, "user_db").fallbackToDestructiveMigration().build();
-
-        BlankFragment fragment = new BlankFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.BlankFragmentWrap, fragment).commit();
-
         Button loginButton = findViewById(R.id.login1);
 
-//        AsyncTask.execute(() -> {
-//            User u = new User(1234, 0000, 322);
-//            UserDao userDao = db.userdao();
-//
-//            userDao.save(u);
-//            userDao.save(u);
-//            userDao.save(u);
-//            userDao.save(u);
-//            userDao.save(u);
-//            userDao.save(u);
-//
-//            System.out.println("Smth here?");
-//        });
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView loginView = findViewById(R.id.loginView);
-                TextView passwordView = findViewById(R.id.PasswordView);
+                TextView loginView = findViewById(R.id.editTextTextPersonName4);
+                TextView passwordView = findViewById(R.id.editTextTextPassword);
                 loginView.getText().toString();
 
                 String loginData    = loginView.getText().toString();
