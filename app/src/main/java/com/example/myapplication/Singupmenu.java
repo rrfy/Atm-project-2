@@ -48,10 +48,10 @@ public class Singupmenu extends AppCompatActivity {
 
                 String loginData    = loginView.getText().toString();
                 String passwordData = passwordView.getText().toString();
+                DbPositions dbPos = new DbPositions(Singupmenu.this);
+                Position pos = dbPos.getOne(loginData, passwordData);
 
-                positions = DbPositions.getOne(loginData, passwordData);
-
-                if (positions != positions) {
+                if (pos != null) {
                     Intent intent = new Intent(Singupmenu.this, MainActivity.class);
                     startActivity(intent);
                 } else {
