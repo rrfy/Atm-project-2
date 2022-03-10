@@ -49,14 +49,9 @@ public class Singupmenu extends AppCompatActivity {
                 String loginData    = loginView.getText().toString();
                 String passwordData = passwordView.getText().toString();
                 DbPositions dbPos = new DbPositions(Singupmenu.this);
-                Position pos = dbPos.getOne(loginData, passwordData);
-
-                if (pos != null) {
-                    Intent intent = new Intent(Singupmenu.this, MainActivity.class);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(Singupmenu.this, "Login or password was undefined", Toast.LENGTH_SHORT);
-                }
+                dbPos.insert(loginData, passwordData, 0);
+                Intent intent = new Intent(Singupmenu.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -69,6 +64,17 @@ public class Singupmenu extends AppCompatActivity {
                 Intent intent = new Intent(Singupmenu.this, MainActivity.class);
                 startActivity(intent);
 
+            }
+        });
+
+
+        Button Goback4 = findViewById(R.id.Goback4);
+
+        Goback4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goback = new Intent(Singupmenu.this, Three.class);
+                startActivity(goback);
             }
         });
 

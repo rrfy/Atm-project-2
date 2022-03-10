@@ -21,28 +21,15 @@ public class DbPositions {
     }
 
 
-    public long insert(Position position){
+    public long insert(String login, String password, int balance){
 
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put("login", position.getLogin());
-        contentValues.put("password", position.getPassword());
-        contentValues.put("balance", position.getBalance());
+        contentValues.put("login", login);
+        contentValues.put("password", password);
+        contentValues.put("balance", balance);
 
         return db.insert(tableName, null, contentValues);
-    }
-
-
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    public long[] insertMany(ArrayList<Position> positions){
-
-        long[] numbers = new long[positions.size()];
-
-        positions.forEach(position -> {
-            this.insert(position);
-        });
-
-        return numbers;
     }
 
 
@@ -57,9 +44,20 @@ public class DbPositions {
     }
 
 
+    public int editOnePin(Position position, int pin){
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put("login", position.getLogin());
+        contentValues.put("password", pin);
+        contentValues.put("balance", position.getBalance());
+
+        return this.db.update(tableName, contentValues, "id = " + position.getId(), null);
+    }
+
+
     public Position getOne(String login, String password) {
 
-        Cursor cursor = db.rawQuery("Select * from " + tableName + " where login = " + login + " where password = " + password, null);
+        Cursor cursor = db.rawQuery("Select * from " + tableName + " where login = " + login, null);
         Position position;
 
         cursor.moveToFirst();
@@ -70,6 +68,11 @@ public class DbPositions {
         position = new Position(id, login, password, balance);
 
         return position;
+    }
+
+    public int getBal(Position position){
+        int newbal = position.getBalance();
+        return newbal;
     }
 
 }

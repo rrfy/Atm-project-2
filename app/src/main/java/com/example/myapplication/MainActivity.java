@@ -38,13 +38,14 @@ public class MainActivity extends AppCompatActivity {
                 String loginData    = loginView.getText().toString();
                 String passwordData = passwordView.getText().toString();
 
-                Toast.makeText(MainActivity.this, "Login was undefined", Toast.LENGTH_SHORT);
+                DbPositions dbPos = new DbPositions(MainActivity.this);
+                Position pos = dbPos.getOne(loginData, passwordData);
 
-
-                if(passwordData.equals("123")){
-                    Intent intent = new Intent(MainActivity.this, Three.class);
-                    startActivity(intent);
+                if (pos != null) {
+                    Intent inten = new Intent(MainActivity.this, Three.class);
+                    startActivity(inten);
                 }
+
 
             }
         });
