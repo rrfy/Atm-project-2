@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
+    Position position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button loginButton = findViewById(R.id.login1);
+        position = new Position();
 
 
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -37,16 +39,18 @@ public class MainActivity extends AppCompatActivity {
 
                 String loginData    = loginView.getText().toString();
                 String passwordData = passwordView.getText().toString();
+                position = new Position(1, loginData, passwordData, 0);
 
                 DbPositions dbPos = new DbPositions(MainActivity.this);
                 Position pos = dbPos.getOne(loginData, passwordData);
 
+
+
                 if (pos != null) {
-                    Intent inten = new Intent(MainActivity.this, Three.class);
+                    Intent inten = new Intent(MainActivity.this, ThreeActivity.class);
+                    inten.putExtra("id", pos.getId());
                     startActivity(inten);
                 }
-
-
             }
         });
 

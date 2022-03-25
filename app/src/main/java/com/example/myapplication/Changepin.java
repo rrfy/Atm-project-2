@@ -21,9 +21,9 @@ public class Changepin extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String newpin1 = newpin.getText().toString();
-                int newpin = Integer.parseInt(newpin1);
-                DbPositions dbPos = new DbPositions(Changepin.this);
-                dbPos.editOnePin(position, newpin);
+//                int newpin = Integer.parseInt(newpin1);
+//                DbPositions dbPos = new DbPositions(Changepin.this);
+                position.setPassword(newpin1);
 
 
             }
@@ -33,7 +33,7 @@ public class Changepin extends AppCompatActivity {
         Goback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Goback = new Intent(Changepin.this, Three.class);
+                Intent Goback = new Intent(Changepin.this, ThreeActivity.class);
                 startActivity(Goback);
             }
         });

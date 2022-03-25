@@ -10,17 +10,19 @@ import android.widget.TextView;
 
 public class Cashout extends AppCompatActivity {
     Position position;
+    DbPositions dbPositions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cashout);
         Button Goback = findViewById(R.id.Goback6);
+        dbPositions = new DbPositions(this);
 
         Goback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Goback = new Intent(Cashout.this, Three.class);
+                Intent Goback = new Intent(Cashout.this, ThreeActivity.class);
                 startActivity(Goback);
             }
         });
@@ -34,7 +36,9 @@ public class Cashout extends AppCompatActivity {
                 String balancedata1 = balance.getText().toString();
                 int balancedata = Integer.parseInt(balancedata1);
                 DbPositions dbPos = new DbPositions(Cashout.this);
-                dbPos.editOne(position, balancedata);
+                position.setBalance(position.getBalance()-balancedata);
+
+//                position.setBalance(position.getBalance() - balancedata);
             }
         });
     }

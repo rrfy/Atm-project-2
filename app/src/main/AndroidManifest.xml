@@ -25,7 +25,7 @@
             android:name=".Singupmenu"
             android:exported="false" />
         <activity
-            android:name=".Three"
+            android:name=".ThreeActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

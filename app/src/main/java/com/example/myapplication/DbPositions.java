@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class DbPositions {
     private final static String tableName = "USERS";
     private SQLiteDatabase db;
+    private DbPositions dbPositions;
 
     public DbPositions(Context ctx){
         MyDBhelper openHelperPosition = new MyDBhelper(ctx);
@@ -70,9 +71,33 @@ public class DbPositions {
         return position;
     }
 
-    public int getBal(Position position){
-        int newbal = position.getBalance();
-        return newbal;
+    public int getUserBalance(int id){
+        Cursor cursor = db.rawQuery("select balance from " + tableName + " order by id Desc", null);
+        int balance = cursor.getInt(0);
+        return balance;
+
+    }
+
+
+//    public Position getUser(int accountnumber)
+//    {
+//        // loop through accounts searching for matching account number
+//        for (Position currentUser : positions)
+//        {
+//            // return current account if match found
+//            if (currentAccount.getAccountNumber() == accountnumber)
+//                return currentAccount;
+//        } // end for
+//
+//        return null; // if no matching account was found, return null
+//    }
+//    public Position getUser(int _Id)
+
+    public int getBalance(Position position){
+        return position.getBalance();
+    }
+    public DbPositions getDbPositions(){
+        return dbPositions;
     }
 
 }

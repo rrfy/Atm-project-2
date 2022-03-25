@@ -1,10 +1,12 @@
 package com.example.myapplication;
 
-public class Position {
-    private long id;
-    private String login;
-    private String password;
-    private int balance;
+import java.io.Serializable;
+
+public class Position implements Serializable {
+    private long id = 1;
+    private String login = "000";
+    private String password = "000";
+    private int balance = 0;
 
 
     public Position(long id, String login, String password, int balance) {

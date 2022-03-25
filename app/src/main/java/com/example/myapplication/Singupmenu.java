@@ -1,5 +1,4 @@
 package com.example.myapplication;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,7 +14,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class Singupmenu extends AppCompatActivity {
+
     DbPositions positions;
+    Position position;
     ArrayList<Position> users = new ArrayList<>();
 
 
@@ -48,8 +49,13 @@ public class Singupmenu extends AppCompatActivity {
 
                 String loginData    = loginView.getText().toString();
                 String passwordData = passwordView.getText().toString();
+                position = new Position(1, loginData, passwordData, 0);
                 DbPositions dbPos = new DbPositions(Singupmenu.this);
-                dbPos.insert(loginData, passwordData, 0);
+                MyDBhelper myDBhelper = new MyDBhelper(Singupmenu.this);
+                myDBhelper.addUser(loginData, passwordData, 0);
+//                dbPos.insert(loginData, passwordData, 0);
+//                position.setLogin(loginData);
+//                position.setPassword(passwordData);
                 Intent intent = new Intent(Singupmenu.this, MainActivity.class);
                 startActivity(intent);
             }
@@ -64,17 +70,6 @@ public class Singupmenu extends AppCompatActivity {
                 Intent intent = new Intent(Singupmenu.this, MainActivity.class);
                 startActivity(intent);
 
-            }
-        });
-
-
-        Button Goback4 = findViewById(R.id.Goback4);
-
-        Goback4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goback = new Intent(Singupmenu.this, Three.class);
-                startActivity(goback);
             }
         });
 

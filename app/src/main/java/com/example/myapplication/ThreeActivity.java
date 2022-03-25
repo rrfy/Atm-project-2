@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Three extends AppCompatActivity {
+public class ThreeActivity extends AppCompatActivity {
+
+    public static int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,11 +18,15 @@ public class Three extends AppCompatActivity {
 
         Button logout = findViewById(R.id.Logout2);
 
+        Bundle extras = getIntent().getExtras();
+
+        id = extras.getInt("id");
+
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent main = new Intent(Three.this, MainActivity.class);
+                Intent main = new Intent(ThreeActivity.this, MainActivity.class);
                 startActivity(main);
             }
         });
@@ -29,7 +35,7 @@ public class Three extends AppCompatActivity {
         Deposit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Deposit = new Intent(Three.this, Deposit.class);
+                Intent Deposit = new Intent(ThreeActivity.this, Deposit.class);
                 startActivity(Deposit);
             }
         });
@@ -38,7 +44,7 @@ public class Three extends AppCompatActivity {
         Changepin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Changepin = new Intent(Three.this, Changepin.class);
+                Intent Changepin = new Intent(ThreeActivity.this, Changepin.class);
                 startActivity(Changepin);
             }
         });
@@ -47,7 +53,7 @@ public class Three extends AppCompatActivity {
         Cashout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Cashout = new Intent(Three.this, Cashout.class);
+                Intent Cashout = new Intent(ThreeActivity.this, Cashout.class);
                 startActivity(Cashout);
             }
         });
@@ -56,7 +62,7 @@ public class Three extends AppCompatActivity {
         Balance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Balance = new Intent(Three.this, Balance.class);
+                Intent Balance = new Intent(ThreeActivity.this, Balance.class);
                 startActivity(Balance);
             }
         });

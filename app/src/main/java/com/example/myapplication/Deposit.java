@@ -26,7 +26,8 @@ public class Deposit extends AppCompatActivity {
                 String balancedata1 = balance.getText().toString();
                 int balancedata = Integer.parseInt(balancedata1);
                 DbPositions dbPos = new DbPositions(Deposit.this);
-                dbPos.editOne(position, balancedata * -1);
+//                int avalbalance = dbPos.getBalance(getId());
+//                position.setBalance(position.getBalance() + balancedata);
             }
         });
 
@@ -35,7 +36,7 @@ public class Deposit extends AppCompatActivity {
         Goback4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goback = new Intent(Deposit.this, Three.class);
+                Intent goback = new Intent(Deposit.this, ThreeActivity.class);
                 startActivity(goback);
             }
         });
