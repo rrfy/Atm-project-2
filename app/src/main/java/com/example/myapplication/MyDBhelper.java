@@ -47,4 +47,11 @@ public class MyDBhelper extends SQLiteOpenHelper {
         cv.put(COL_BALANCE, balance);
         db.insert(TABLE_NAME, null, cv);
     }
+    void UpdateData(String row_id, int new_balance){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COL_BALANCE, new_balance);
+
+        db.update(TABLE_NAME, cv, "_id = ?", new String[]{row_id});
+    }
 }

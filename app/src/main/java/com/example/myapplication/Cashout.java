@@ -36,9 +36,10 @@ public class Cashout extends AppCompatActivity {
                 String balancedata1 = balance.getText().toString();
                 int balancedata = Integer.parseInt(balancedata1);
                 DbPositions dbPos = new DbPositions(Cashout.this);
-                position.setBalance(position.getBalance()-balancedata);
-
-//                position.setBalance(position.getBalance() - balancedata);
+                int id = ThreeActivity.id;
+                MyDBhelper myDB = new MyDBhelper(Cashout.this);
+                int newbalance = dbPos.getUserBalance(id);
+                myDB.UpdateData(String.valueOf(id), newbalance - balancedata);
             }
         });
     }

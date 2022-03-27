@@ -19,7 +19,7 @@ public class Balance extends AppCompatActivity {
         int id = ThreeActivity.id;
 
         DbPositions dbPos = new DbPositions(Balance.this);
-        int newbalance = this.dbPositions.getUserBalance(id);
+        int newbalance = dbPos.getUserBalance(id);
 
         balance.setText(newbalance);
 
