@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Debug;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
                 if (pos != null) {
                     Intent inten = new Intent(MainActivity.this, ThreeActivity.class);
-                    inten.putExtra("id", pos.getId());
+                    Log.d("login", loginData);
+                    inten.putExtra("login", loginData);
                     startActivity(inten);
                 }
             }

@@ -15,16 +15,29 @@ public class Balance extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        TextView balance = findViewById(R.id.Balance2);
-        int id = ThreeActivity.id;
-
-        DbPositions dbPos = new DbPositions(Balance.this);
-        int newbalance = dbPos.getUserBalance(id);
-
-        balance.setText(newbalance);
-
         setContentView(R.layout.activity_balance);
+
+        Button Refresh = findViewById(R.id.refresh);
+
+
+        Refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView balance = findViewById(R.id.Balance2);
+                String login = ThreeActivity.login;
+
+                DbPositions dbPos = new DbPositions(Balance.this);
+                int newbalance = dbPos.getUserBalance(login);
+
+
+                balance.setText(Integer.toString(newbalance));
+            }
+        });
+
+
+
         Button Goback = findViewById(R.id.Goback7);
+
 
         Goback.setOnClickListener(new View.OnClickListener() {
             @Override

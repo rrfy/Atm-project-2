@@ -11,6 +11,7 @@ import android.widget.TextView;
 public class Cashout extends AppCompatActivity {
     Position position;
     DbPositions dbPositions;
+//    MyDBhelper dBhelper = new MyDBhelper();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +37,11 @@ public class Cashout extends AppCompatActivity {
                 String balancedata1 = balance.getText().toString();
                 int balancedata = Integer.parseInt(balancedata1);
                 DbPositions dbPos = new DbPositions(Cashout.this);
-                int id = ThreeActivity.id;
+                String login = ThreeActivity.login;
+
                 MyDBhelper myDB = new MyDBhelper(Cashout.this);
-                int newbalance = dbPos.getUserBalance(id);
-                myDB.UpdateData(String.valueOf(id), newbalance - balancedata);
+                int newbalance = dbPos.getUserBalance(login);
+                myDB.UpdateData(String.valueOf(login), newbalance - balancedata);
             }
         });
     }

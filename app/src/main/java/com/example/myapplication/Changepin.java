@@ -20,12 +20,12 @@ public class Changepin extends AppCompatActivity {
         Changepin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DbPositions dbPos = new DbPositions(Changepin.this);
                 String newpin1 = newpin.getText().toString();
-//                int newpin = Integer.parseInt(newpin1);
-//                DbPositions dbPos = new DbPositions(Changepin.this);
-                position.setPassword(newpin1);
+                String login = ThreeActivity.login;
 
-
+                MyDBhelper myDB = new MyDBhelper(Changepin.this);
+                myDB.UpdatePin(String.valueOf(login), newpin1);
             }
         });
         Button Goback = findViewById(R.id.Goback5);

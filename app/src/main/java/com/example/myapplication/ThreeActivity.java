@@ -10,6 +10,7 @@ import android.widget.Button;
 public class ThreeActivity extends AppCompatActivity {
 
     public static int id;
+    public static String login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,11 @@ public class ThreeActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
 
-        id = extras.getInt("id");
+        if(extras != null){
+            login = extras.getString("login");
+        }
+
+
 
 
         logout.setOnClickListener(new View.OnClickListener() {

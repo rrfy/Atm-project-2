@@ -63,7 +63,7 @@ public class DbPositions {
 
         cursor.moveToFirst();
 
-        long   id         = cursor.getLong(0);
+        int   id         = cursor.getInt(0);
         int balance = Integer.parseInt(cursor.getString(3));
 
         position = new Position(id, login, password, balance);
@@ -71,12 +71,14 @@ public class DbPositions {
         return position;
     }
 
-    public int getUserBalance(int id){
-        Cursor cursor = db.rawQuery("select balance from " + tableName + " order by id Desc", null);
-        int balance = cursor.getInt(0);
+    public int getUserBalance(String login){
+        Cursor cursor = db.rawQuery("Select * from " + tableName + " where login = " + login, null);
+        cursor.moveToFirst();
+        int balance = Integer.parseInt(cursor.getString(3));
         return balance;
 
     }
+
 
     public int getBalance(Position position){
         return position.getBalance();

@@ -16,10 +16,11 @@ public class MyDBhelper extends SQLiteOpenHelper {
     public static final String TABLE_NAME="USERS";
     public static final String DB_NAME="users";
     public static final int DB_VERSION = 1;
-    public static final String COL_ID  = "_id";
+    public static final String COL_ID  = "id";
     public static final String COL_LOGIN = "login";
     public static final String COL_PASSWORD = "password";
     public static final String COL_BALANCE = "balance";
+
 
     public MyDBhelper(@Nullable Context context) {
 
@@ -39,6 +40,7 @@ public class MyDBhelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
+
     void addUser(String login, String password, int balance){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -47,11 +49,20 @@ public class MyDBhelper extends SQLiteOpenHelper {
         cv.put(COL_BALANCE, balance);
         db.insert(TABLE_NAME, null, cv);
     }
-    void UpdateData(String row_id, int new_balance){
+
+    void UpdateData(String login, int new_balance) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COL_BALANCE, new_balance);
 
-        db.update(TABLE_NAME, cv, "_id = ?", new String[]{row_id});
+        db.update(TABLE_NAME, cv, "login = ?", new String[]{login});
+    }
+
+    void UpdatePin(String login, String pin){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COL_PASSWORD, pin);
+
+        db.update(TABLE_NAME, cv, "login = ?", new String[]{login});
     }
 }

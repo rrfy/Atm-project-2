@@ -26,8 +26,11 @@ public class Deposit extends AppCompatActivity {
                 String balancedata1 = balance.getText().toString();
                 int balancedata = Integer.parseInt(balancedata1);
                 DbPositions dbPos = new DbPositions(Deposit.this);
-//                int avalbalance = dbPos.getBalance(getId());
-//                position.setBalance(position.getBalance() + balancedata);
+                String login = ThreeActivity.login;
+
+                MyDBhelper myDB = new MyDBhelper(Deposit.this);
+                int newbalance = dbPos.getUserBalance(login);
+                myDB.UpdateData(String.valueOf(login), newbalance + balancedata);
             }
         });
 
