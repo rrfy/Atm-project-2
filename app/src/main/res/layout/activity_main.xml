@@ -12,66 +12,82 @@
         android:id="@+id/textView"
         android:layout_width="83dp"
         android:layout_height="35dp"
+        android:scrollbars="none"
         android:text="Log in"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#444444"
+        android:textIsSelectable="false"
+        android:textSize="20sp"
+        android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.165" />
+        app:layout_constraintVertical_bias="0.27" />
 
     <Button
         android:id="@+id/login1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#1832BC"
+        android:backgroundTint="#0068ab"
         android:text="Log in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.546" />
+        app:layout_constraintVertical_bias="0.592" />
 
     <Button
         android:id="@+id/Singup1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#1832BC"
+        android:backgroundTint="#0068ab"
         android:text="Singup"
-        app:iconTint="#1832BC"
+        app:iconTint="#0068ab"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.633"
-        app:strokeColor="#1832BC" />
+        app:layout_constraintVertical_bias="0.699"
+        app:strokeColor="#0068ab" />
 
     <EditText
         android:id="@+id/editTextTextPersonName4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autofillHints=""
         android:ems="10"
+        android:hint="Login"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textColor="#444444"
+        android:textColorHint="#444444"
         app:layout_constraintBottom_toTopOf="@+id/login1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.169" />
+        app:layout_constraintVertical_bias="0.225"
+        tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autofillHints=""
         android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textColor="#444444"
+        android:textColorHint="#444444"
         app:layout_constraintBottom_toTopOf="@+id/login1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4"
-        app:layout_constraintVertical_bias="0.161" />
+        app:layout_constraintVertical_bias="0.34" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

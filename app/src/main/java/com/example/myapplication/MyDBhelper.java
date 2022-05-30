@@ -13,9 +13,11 @@ public class MyDBhelper extends SQLiteOpenHelper {
 
 
     private Context context;
+
     public static final String TABLE_NAME="USERS";
     public static final String DB_NAME="users";
     public static final int DB_VERSION = 1;
+
     public static final String COL_ID  = "id";
     public static final String COL_LOGIN = "login";
     public static final String COL_PASSWORD = "password";
@@ -42,16 +44,20 @@ public class MyDBhelper extends SQLiteOpenHelper {
     }
 
     void addUser(String login, String password, int balance){
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
+
         cv.put(COL_LOGIN, login);
         cv.put(COL_PASSWORD, password);
         cv.put(COL_BALANCE, balance);
+
         db.insert(TABLE_NAME, null, cv);
     }
 
     void UpdateData(String login, int new_balance) {
         SQLiteDatabase db = this.getWritableDatabase();
+
         ContentValues cv = new ContentValues();
         cv.put(COL_BALANCE, new_balance);
 
@@ -60,6 +66,7 @@ public class MyDBhelper extends SQLiteOpenHelper {
 
     void UpdatePin(String login, String pin){
         SQLiteDatabase db = this.getWritableDatabase();
+
         ContentValues cv = new ContentValues();
         cv.put(COL_PASSWORD, pin);
 

@@ -17,6 +17,7 @@ public class DbPositions {
     private DbPositions dbPositions;
 
     public DbPositions(Context ctx){
+
         MyDBhelper openHelperPosition = new MyDBhelper(ctx);
         this.db = openHelperPosition.getWritableDatabase();
     }
@@ -35,6 +36,7 @@ public class DbPositions {
 
 
     public int editOne(Position position, int balance) {
+
         ContentValues contentValues = new ContentValues();
 
         contentValues.put("login", position.getLogin());
@@ -46,6 +48,7 @@ public class DbPositions {
 
 
     public int editOnePin(Position position, int pin){
+
         ContentValues contentValues = new ContentValues();
 
         contentValues.put("login", position.getLogin());
@@ -72,8 +75,10 @@ public class DbPositions {
     }
 
     public int getUserBalance(String login){
+
         Cursor cursor = db.rawQuery("Select * from " + tableName + " where login = " + login, null);
         cursor.moveToFirst();
+
         int balance = Integer.parseInt(cursor.getString(3));
         return balance;
 
@@ -81,9 +86,11 @@ public class DbPositions {
 
 
     public int getBalance(Position position){
+
         return position.getBalance();
     }
     public DbPositions getDbPositions(){
+
         return dbPositions;
     }
 

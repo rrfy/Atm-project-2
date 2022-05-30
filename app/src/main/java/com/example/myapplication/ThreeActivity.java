@@ -6,6 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
+
+
 
 public class ThreeActivity extends AppCompatActivity {
 
@@ -22,57 +29,72 @@ public class ThreeActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
 
         if(extras != null){
-            login = extras.getString("login");
+            id = extras.getInt("id");
         }
 
 
 
 
         logout.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 Intent main = new Intent(ThreeActivity.this, MainActivity.class);
                 startActivity(main);
+
             }
         });
+
+
         Button Deposit = findViewById(R.id.Deposit);
 
         Deposit.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 Intent Deposit = new Intent(ThreeActivity.this, Deposit.class);
                 startActivity(Deposit);
+
             }
         });
+
+
         Button Changepin = findViewById(R.id.Changepin);
 
         Changepin.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 Intent Changepin = new Intent(ThreeActivity.this, Changepin.class);
                 startActivity(Changepin);
+
             }
         });
+
+
         Button Cashout = findViewById(R.id.Cashout);
 
         Cashout.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 Intent Cashout = new Intent(ThreeActivity.this, Cashout.class);
                 startActivity(Cashout);
+
             }
         });
+
+
         Button Balance = findViewById(R.id.Balance);
 
         Balance.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 Intent Balance = new Intent(ThreeActivity.this, Balance.class);
                 startActivity(Balance);
+
             }
         });
-
-
-
     }
 }

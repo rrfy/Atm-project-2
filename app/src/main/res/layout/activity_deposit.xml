@@ -11,37 +11,43 @@
         android:id="@+id/Deposit1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#1832BC"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#0068ab"
         android:text="Deposit"
         app:layout_constraintBottom_toTopOf="@+id/Goback4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCash" />
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/Goback4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#1832BC"
+        android:backgroundTint="#0068ab"
         android:text="Go back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.559" />
+        app:layout_constraintVertical_bias="0.573" />
 
     <EditText
         android:id="@+id/editCash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autofillHints=""
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Cash"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:hint="Cash"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:selectAllOnFocus="false"
+        android:textColor="#444444"
+        android:textColorHint="#444444"
+        android:textIsSelectable="false"
+        app:layout_constraintBottom_toTopOf="@+id/Deposit1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377" />
+        app:layout_constraintVertical_bias="0.903" />
 </androidx.constraintlayout.widget.ConstraintLayout>

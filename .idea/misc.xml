@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Stepan/AndroidStudioProjects/Project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2595" />
         <entry key="..\:/Users/Stepan/AndroidStudioProjects/Project/app/src/main/res/drawable/ic_launcher_background.xml" value="0.163" />
         <entry key="..\:/Users/Stepan/AndroidStudioProjects/Project/app/src/main/res/layout/activity_balance.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Stepan/AndroidStudioProjects/Project/app/src/main/res/layout/activity_cashout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Stepan/AndroidStudioProjects/Project/app/src/main/res/layout/activity_cashout.xml" value="0.25" />
         <entry key="..\:/Users/Stepan/AndroidStudioProjects/Project/app/src/main/res/layout/activity_changepin.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Stepan/AndroidStudioProjects/Project/app/src/main/res/layout/activity_deposit.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Stepan/AndroidStudioProjects/Project/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
